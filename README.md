@@ -15,3 +15,5 @@ Steps to install this test application
 
 Open your browser and access this URL:
 http://localhost:8080
+
+The database schema file (developercvs.sql) is located in /src/assets/ directory
