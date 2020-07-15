@@ -87,6 +87,12 @@ const state = {
 		{
 			Work: {
 				id: 1,
+				accomplishments: 'Re-organized something to make it work better.\n' +
+					'Identified a problem and solved it.\n' +
+					'Come up with a new idea that improved things.\n' +
+					'Developed or implemented new procedures or systems.\n' +
+					'Worked on special projects.\n' +
+					'Received awards.',
 				workLocation: 'amazon',
 				jobRole: 'fullstackdev',
 				yearStarted: 2012,
@@ -106,6 +112,12 @@ const state = {
 		{
 			Work: {
 				id: 2,
+				accomplishments: 'Re-organized something to make it work better.\n' +
+					'Identified a problem and solved it.\n' +
+					'Come up with a new idea that improved things.\n' +
+					'Developed or implemented new procedures or systems.\n' +
+					'Worked on special projects.\n' +
+					'Received awards.',
 				workLocation: 'yahoo',
 				jobRole: 'backdev',
 				yearStarted: 2008,
@@ -125,6 +137,12 @@ const state = {
 		{
 			Work: {
 				id: 3,
+				accomplishments: 'Re-organized something to make it work better.\n' +
+					'Identified a problem and solved it.\n' +
+					'Come up with a new idea that improved things.\n' +
+					'Developed or implemented new procedures or systems.\n' +
+					'Worked on special projects.\n' +
+					'Received awards.',
 				workLocation: 'widgets',
 				jobRole: 'devops',
 				yearStarted: 2005,
@@ -141,7 +159,18 @@ const state = {
 				technologies: ['php','laravel','mysql']
 			}
 		}
-	]
+	],
+	Profile: {
+		firstName: 'John',
+		lastName: 'Doe',
+		headline: 'Developer Extraordinaire',
+		country: 'us',
+		address: null,
+		whatsapp: 'johndoe@1_whatsapp',
+		skype: 'johndoe@1_skype',
+		email: 'john@developer-extraordinaire.com',
+		website: 'https://developer-extraordinaire.com'
+	}
 }
 const getters = {
 	getField

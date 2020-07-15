@@ -27,6 +27,10 @@
 									<v-col cols="2">Responsibilities:</v-col>
 									<v-col cols="10"><span v-html=" nl2br(work.Work.responsibilities)"></span></v-col>
 								</v-row>
+								<v-row no-gutters class="pt-3">
+									<v-col cols="2">Accomplishments:</v-col>
+									<v-col cols="10"><span v-html=" nl2br(work.Work.accomplishments)"></span></v-col>
+								</v-row>
 								<v-row no-gutters class="align-center pt-3">
 									<v-col cols="2" lg="2" md="2">Technologies used:</v-col>
 									<v-col cols="10" lg="10" md="10" class="d-flex flex-row">
@@ -38,7 +42,7 @@
 								<v-row no-gutters>
 									<v-col cols="12">
 										<v-btn icon small class="float-right"><v-icon small>fas fa-trash-alt</v-icon></v-btn>
-										<v-btn icon small class="float-right" @click="openProjectDialog(project)"><v-icon small>fas fa-edit</v-icon></v-btn>
+										<v-btn icon small class="float-right" @click="openExperienceDialog(work)"><v-icon small>fas fa-edit</v-icon></v-btn>
 									</v-col>
 								</v-row>
 							</v-card-text>
@@ -50,12 +54,106 @@
 		<v-dialog
 			persistent
 			v-model="workDialog"
-			width="500"
-			max-width="500"
+			width="700"
+			max-width="700"
 		>
 			<v-card rounded>
 				<v-card-title class="default text-left font-weight-bold">{{ workDialogTitle }}</v-card-title>
 				<v-card-text>
+					<v-row no-gutters class="d-flex flex-row align-center pt-3">
+						<v-col cols="3">Company:</v-col>
+						<v-col cols="9">
+							<v-select
+								:items="workLocations"
+								clearable
+								dense
+								hide-details
+								item-value="id"
+								item-text="title"
+								solo
+								v-model="WorkToUpdate.workLocation"
+							></v-select>
+						</v-col>
+					</v-row>
+					<v-row no-gutters class="d-flex flex-row align-center pt-3">
+						<v-col cols="3">Role:</v-col>
+						<v-col cols="9">
+							<v-select
+								:items="workRoles"
+								clearable
+								dense
+								hide-details
+								item-value="id"
+								item-text="title"
+								solo
+								v-model="WorkToUpdate.jobRole"
+							></v-select>
+						</v-col>
+					</v-row>
+					<v-row no-gutters class="d-flex flex-row align-center pt-3">
+						<v-col cols="3">Year employed:</v-col>
+						<v-col cols="9">
+							<v-text-field
+								clearable
+								dense
+								hide-details
+								solo
+								v-model="WorkToUpdate.yearStarted"
+							></v-text-field>
+						</v-col>
+					</v-row>
+					<v-row no-gutters class="d-flex flex-row align-center pt-3">
+						<v-col cols="3">Year left:</v-col>
+						<v-col cols="9">
+							<v-text-field
+								dense
+								hide-details
+								solo
+								v-model="WorkToUpdate.yearLeft"
+							></v-text-field>
+						</v-col>
+					</v-row>
+					<v-row no-gutters class="d-flex flex-row align-center pt-3">
+						<v-col cols="3">Responsibilities:</v-col>
+						<v-col cols="9">
+							<v-textarea
+								clearable
+								dense
+								hide-details
+								solo
+								v-model="WorkToUpdate.responsibilities"
+							></v-textarea>
+						</v-col>
+					</v-row>
+					<v-row no-gutters class="d-flex flex-row align-center pt-3">
+						<v-col cols="3">Accomplishments:</v-col>
+						<v-col cols="9">
+							<v-textarea
+								clearable
+								dense
+								hide-details
+								solo
+								v-model="WorkToUpdate.accomplishments"
+							></v-textarea>
+						</v-col>
+					</v-row>
+					<v-row no-gutters class="d-flex flex-row align-center pt-3">
+						<v-col cols="3">Technologies used:</v-col>
+						<v-col cols="9">
+							<v-select
+								:items="technologies"
+								chips
+								clearable
+								dense
+								hide-details
+								item-value="id"
+								item-text="title"
+								multiple
+								solo
+								v-model="WorkToUpdate.technologies"
+							></v-select>
+						</v-col>
+					</v-row>
 				</v-card-text>
 				<v-card-actions>
 					<v-spacer></v-spacer>
@@ -120,7 +218,17 @@
 					{id: 'mobiledev', title: 'Mobile Developer'},
 					{id: 'devops', title: 'DevOps'},
 					{id: 'datasci', title: 'Data Scientist'},
-				]
+				],
+				WorkToUpdate: {
+					id: null,
+					accomplishments: null,
+					workLocation: null,
+					jobRole: null,
+					yearStarted: null,
+					yearLeft: null,
+					responsibilities: null,
+					technologies: []
+				}
 			}
 		},
 		computed: {
@@ -136,8 +244,24 @@
 				this.workDialog = true
 				if(work){
 					this.workDialogTitle = 'Update your Work Experience'
+					this.WorkToUpdate.id = work.Work.id
+					this.WorkToUpdate.accomplishments = work.Work.accomplishments
+					this.WorkToUpdate.workLocation = work.Work.workLocation
+					this.WorkToUpdate.jobRole = work.Work.jobRole
+					this.WorkToUpdate.yearStarted = work.Work.yearStarted
+					this.WorkToUpdate.yearLeft = work.Work.yearLeft
+					this.WorkToUpdate.responsibilities = work.Work.responsibilities
+					this.WorkToUpdate.technologies = work.Work.technologies
 				} else {
 					this.workDialogTitle = 'Add a new Work Experience'
+					this.WorkToUpdate.id = null
+					this.WorkToUpdate.accomplishments = null
+					this.WorkToUpdate.workLocation = null
+					this.WorkToUpdate.jobRole = null
+					this.WorkToUpdate.yearStarted = null
+					this.WorkToUpdate.yearLeft = null
+					this.WorkToUpdate.responsibilities = null
+					this.WorkToUpdate.technologies = []
 				}
 			},
 			nl2br (str, is_xhtml) {
