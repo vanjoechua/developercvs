@@ -3,7 +3,7 @@ Developer portfolio builder
 
 Steps to install this test application
 1. Clone this repository to a suitable directory in your computer
-`git clone https://github.com/vanjoechua/orderviewer.git <installation-directory>`
+`git clone https://github.com/vanjoechua/developercvs <installation-directory>`
 
 2. Enter your installation directory
 
