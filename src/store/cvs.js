@@ -32,7 +32,7 @@ const namespaced = {
 const state = {
 	allProjects: [
 		{Project: {
-				id: 0,
+				id: 1,
 				title: 'Vertex PDF',
 				type: 'saas-app',
 				url: null,
@@ -47,7 +47,7 @@ const state = {
 			}
 		},
 		{Project: {
-				id: 1,
+				id: 2,
 				title: 'Cave API',
 				type: 'api',
 				url: null,
@@ -62,7 +62,7 @@ const state = {
 			}
 		},
 		{Project: {
-				id: 2,
+				id: 3,
 				title: 'RocketDog',
 				type: 'mobile-game',
 				url: null,
@@ -83,6 +83,65 @@ const state = {
 		{Skill: {id: 3, technology: 'nodejs', level: 6, yearsOfExperience: 2}},
 		{Skill: {id: 4, technology: 'laravel', level: 9, yearsOfExperience: 5}},
 	],
+	allWork: [
+		{
+			Work: {
+				id: 1,
+				workLocation: 'amazon',
+				jobRole: 'fullstackdev',
+				yearStarted: 2012,
+				yearLeft: null,
+				responsibilities: 'Understand client requirements and how they translate in application features\n' +
+					'Collaborate with a team of IT professionals to set specifications for new applications\n' +
+					'Design creative prototypes according to specifications\n' +
+					'Write high quality source code to program complete applications within deadlines\n' +
+					'Perform unit and integration testing before launch\n' +
+					'Conduct functional and non-functional testing\n' +
+					'Troubleshoot and debug applications\n' +
+					'Evaluate existing applications to reprogram, update and add new features\n' +
+					'Develop technical documents and handbooks to accurately represent application design and code',
+				technologies: ['php','nodejs','js','mssql','drupal','mongo','java']
+			}
+		},
+		{
+			Work: {
+				id: 2,
+				workLocation: 'yahoo',
+				jobRole: 'backdev',
+				yearStarted: 2008,
+				yearLeft: 2012,
+				responsibilities: 'Understand client requirements and how they translate in application features\n' +
+					'Collaborate with a team of IT professionals to set specifications for new applications\n' +
+					'Design creative prototypes according to specifications\n' +
+					'Write high quality source code to program complete applications within deadlines\n' +
+					'Perform unit and integration testing before launch\n' +
+					'Conduct functional and non-functional testing\n' +
+					'Troubleshoot and debug applications\n' +
+					'Evaluate existing applications to reprogram, update and add new features\n' +
+					'Develop technical documents and handbooks to accurately represent application design and code',
+				technologies: ['php','drupal','nodejs','java']
+			}
+		},
+		{
+			Work: {
+				id: 3,
+				workLocation: 'widgets',
+				jobRole: 'devops',
+				yearStarted: 2005,
+				yearLeft: 2007,
+				responsibilities: 'Understand client requirements and how they translate in application features\n' +
+					'Collaborate with a team of IT professionals to set specifications for new applications\n' +
+					'Design creative prototypes according to specifications\n' +
+					'Write high quality source code to program complete applications within deadlines\n' +
+					'Perform unit and integration testing before launch\n' +
+					'Conduct functional and non-functional testing\n' +
+					'Troubleshoot and debug applications\n' +
+					'Evaluate existing applications to reprogram, update and add new features\n' +
+					'Develop technical documents and handbooks to accurately represent application design and code',
+				technologies: ['php','laravel','mysql']
+			}
+		}
+	]
 }
 const getters = {
 	getField

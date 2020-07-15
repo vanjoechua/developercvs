@@ -3,9 +3,10 @@
 		<v-container fluid>
 			<v-row no-gutters>
 				<v-col cols="12" class="d-flex flex-row justify-space-between align-center">
-					<span class="text-h1 font-weight-light">My Skills</span>
+					<span class="text-h2 font-weight-light">My Skills</span>
 					<v-btn
 						fab
+						small
 						@click="openSkillDialog(null)"
 					><v-icon>fas fa-plus</v-icon>
 					</v-btn>
@@ -13,7 +14,7 @@
 			</v-row>
 			<v-row>
 				<v-col cols="3" v-for="skill in allSkills" :key="skill.Skill.id">
-					<v-card class="mx-auto d-flex flex-column justify-space-between" height="250">
+					<v-card class="mx-auto d-flex flex-column justify-space-between mt-0" height="250">
 						<v-card-title class="d-flex flex-column justify-center" style="height: 150px">
 							<div class="text-center">
 								<v-img :src="getSkillIcon(skill.Skill.technology)" max-width="100"></v-img>
@@ -102,7 +103,7 @@
 						color="info"
 						small
 						@click="addSkill"
-					>Add
+					>Save
 					</v-btn>
 				</v-card-actions>
 			</v-card>

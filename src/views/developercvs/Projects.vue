@@ -3,9 +3,10 @@
 		<v-container fluid>
 			<v-row no-gutters>
 				<v-col cols="12" class="d-flex flex-row justify-space-between align-center">
-					<span class="text-h1 font-weight-light">My Projects</span>
+					<span class="text-h2 font-weight-light">My Projects</span>
 					<v-btn
 						fab
+						small
 						@click="openProjectDialog(null)"
 					><v-icon>fas fa-plus</v-icon>
 					</v-btn>
@@ -13,7 +14,7 @@
 			</v-row>
 			<v-row>
 				<v-col cols="4" v-for="project in allProjects" :key="project.Project.id">
-					<v-card class="mx-auto d-flex flex-column justify-space-between" height="375">
+					<v-card class="mx-auto d-flex flex-column justify-space-between mt-0" height="375">
 						<v-card-title class="d-flex flex-column justify-center">
 							<span>{{ project.Project.title }}</span>
 							<v-img :src="project.Project.icon" width="80"></v-img>
@@ -172,7 +173,7 @@
 						color="info"
 						small
 						@click="addProject"
-					>Add
+					>Save
 					</v-btn>
 				</v-card-actions>
 			</v-card>
